@@ -8,7 +8,7 @@ using namespace std;
 ifstream plik("bin.txt");
 ifstream przyklad("bin_przyklad.txt");
 
-int bloki(long long bin)
+int bloki(unsigned long long bin)
 {
     int p = 2; //aktualna liczba w bloku
     int r; //aktualna liczba zapisu binarnego
@@ -26,7 +26,7 @@ int bloki(long long bin)
     return b;
 }
 
-int bin2dec(long long bin)
+int bin2dec(unsigned long long bin)
 {
     int i = 0;
     int p; //aktualna liczba
@@ -43,12 +43,12 @@ int bin2dec(long long bin)
 
 int main()
 {
-    long long int bin;
+    unsigned long long int bin;
     int ileB2 = 0;
     for (int i = 0; i < 100; i++)
     {
-        //plik >> bin;
-        przyklad >> bin;
+        plik >> bin;
+        //przyklad >> bin;
         if (bloki(bin) <= 2) ileB2++;
     }
     plik.close();
@@ -57,12 +57,12 @@ int main()
     plik.open("bin.txt");
     przyklad.open("bin_przyklad.txt");
     int max = 0;
-    long long maxB;
+    unsigned long long maxB;
     int m;
     for (int i = 0; i < 100; i++)
     {
-        //plik >> bin;
-        przyklad >> bin;
+        plik >> bin;
+        //przyklad >> bin;
         m = bin2dec(bin);
         //cout << m << "\t" << bin << endl;
         if (m > max)
